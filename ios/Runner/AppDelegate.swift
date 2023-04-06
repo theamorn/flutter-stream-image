@@ -72,7 +72,7 @@ import VideoToolbox
         data.withUnsafeBytes { rawBufferPointer in
             let rawPtr = rawBufferPointer.baseAddress!
             let address = UnsafeMutableRawPointer(mutating:rawPtr)
-            guard let pxBuffer = bytesToPixelBuffer(width: imageWidth, height: imageHeight, baseAddress: address, bytesPerRow: bytes), let copyImage = pxBuffer.copy() , let cgiImage = createImage(from: pxBuffer) else {
+            guard let pxBuffer = bytesToPixelBuffer(width: imageWidth, height: imageHeight, baseAddress: address, bytesPerRow: bytes), let copyImage = pxBuffer.copy() , let cgiImage = createImage(from: copyImage) else {
                 return nil
             }
             
